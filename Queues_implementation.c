@@ -60,22 +60,3 @@ void display()
         printf("%d\n",queue[rear]);
     }
 }
-
-int main()
-{
-
-    enqueue(5);
-    enqueue(6);
-    enqueue(7);
-    enqueue(8);
-    enqueue(9);
-    enqueue(10);
-    peek;
-    display();
-    dequeue();
-    dequeue();
-    peek();
-    display();
-}
-
-
