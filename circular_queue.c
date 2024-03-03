@@ -21,6 +21,7 @@ int enqueue(int x)
         queue[rear]=x;
     }
 }
+
 int dequeue()
 {
     if(front==-1 && rear==-1)
@@ -30,7 +31,6 @@ int dequeue()
         printf("\nThe dequeued element is : %d",queue[front]);
         front=(front+1)%size;
     }
-
 }
 
 int display()
