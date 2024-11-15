@@ -19,7 +19,6 @@ char pop()
     return x;
 }
 
-
 int is_operator(char symbol)
 {
     if(symbol=='^' || symbol=='*' || symbol=='/' || symbol=='%' || symbol=='+' || symbol=='-')
@@ -27,7 +26,6 @@ int is_operator(char symbol)
     else
         return 0;
 }
-
 
 int pre(char symbol)
 {
@@ -41,7 +39,6 @@ int pre(char symbol)
         return 0;
 }
 
-
 void convert()
 {
     push('(');
@@ -51,22 +48,18 @@ void convert()
     char x,item;
     item=infix[i];
 
-    while(item!='\0')
-    {
+    while(item!='\0'){
         if(item=='(')
-        {
             push(item);
-        }
-        else if(isdigit(item) || isalpha(item))
-        {
+            
+        else if(isdigit(item) || isalpha(item)){
             postfix_top++;
             postfix[postfix_top]=item;
         }
-        else if(is_operator(item)==1)
-        {
+            
+        else if(is_operator(item)==1){
             x=pop();
-            while(is_operator(item)==1 && pre(x)>=pre(item))
-            {
+            while(is_operator(item)==1 && pre(x)>=pre(item)){
                 postfix_top++;
                 postfix[postfix_top]=x;
                 x=pop();
@@ -74,12 +67,10 @@ void convert()
             push(x);
             push(item);
         }
-
-        else if(item==')')
-        {
+            
+        else if(item==')'){
             x=pop();
-            while(x!='(')
-            {
+            while(x!='('){
                 postfix_top++;
                 postfix[postfix_top]=x;
                 x=pop();
@@ -88,9 +79,7 @@ void convert()
         i++;
         item=infix[i];
     }
-
 }
-
 
 void main()
 {
@@ -99,8 +88,7 @@ void main()
 
     convert();
     int i=0;
-    while(postfix[i]!='\0')
-    {
+    while(postfix[i]!='\0'){
         printf("%c ",postfix[i]);
         i++;
     }
